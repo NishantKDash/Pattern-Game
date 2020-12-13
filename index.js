@@ -5,6 +5,7 @@ var game_pattern=[];
 var started=false;
 var level=0;
 $(document).on("keydown",function(){if(!started){$("#level-title").text("Level "+level);nextSequence();started=true;}});
+$(".str").on("click",function(){if(!started){$("#level-title").text("Level "+level);nextSequence();started=true;}});
 
 $(".btn").on("click",function(){var userchosencolour=$(this).attr("id"); user_clickedPattern.push(userchosencolour);play_sound(userchosencolour);animate_press(userchosencolour);check_answer(user_clickedPattern.length-1) });
 function check_answer(currentLevel)
@@ -46,7 +47,7 @@ setTimeout(function(){$("#"+text1).removeClass("pressed");},100);
 }
 function game_over()
 {
-  $("#level-title").text("GAME OVER! Press A Key to Start");
+  $("#level-title").text("GAME OVER! Press A Key or Click to Start");
 $("body").addClass("game-over");
   setTimeout(function(){$("body").removeClass("game-over");},200);
 }
